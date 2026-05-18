@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { categoryBadge, formatPrice, getFeatured } from "@/lib/products";
+import AddToCartButton from "@/components/AddToCartButton";
+import { pressable } from "@/lib/ui";
 
 const placeholderColors = [
     "bg-gray-200",
@@ -19,7 +21,7 @@ export default function FeaturedProducts() {
                 <h2 className="text-lg font-semibold">Featured products</h2>
                 <Link
                     href="/products"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/20 rounded-lg text-sm font-medium hover:bg-white/5"
+                    className={`${pressable} inline-flex items-center gap-2 px-3 py-1.5 border border-white/20 rounded-lg text-sm font-medium hover:bg-white/5 hover:border-white/40`}
                 >
                     View all <span aria-hidden>→</span>
                 </Link>
@@ -57,12 +59,9 @@ export default function FeaturedProducts() {
                                     <span className="text-ink font-semibold">
                                         {formatPrice(product.price)}
                                     </span>
-                                    <button
-                                        type="button"
-                                        className="border border-border text-ink bg-white hover:bg-surface px-3 py-1.5 rounded-md text-sm font-medium"
-                                    >
-                                        + Cart
-                                    </button>
+                                    <AddToCartButton product={product} 
+                                    buttonText="+ Cart" 
+                                    className="bg-ink text-white px-3 py-2 rounded-md text-sm font-medium"/>
                                 </div>
                             </div>
                         </article>

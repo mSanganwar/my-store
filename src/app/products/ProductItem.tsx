@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import AddToCartButton from '@/components/AddToCartButton'
 import { categoryBadge, formatPrice, type Product } from "@/lib/products";
+import { pressableCard } from "@/lib/ui";
 
 type Props = {
     product: Product;
@@ -8,7 +10,7 @@ type Props = {
 
 export default function ProductItem({ product }: Props) {
     return (
-        <Link href={`/products/${product.id}`}>
+        <Link href={`/products/${product.id}`} className={`${pressableCard} block rounded-lg`}>
             <article className="bg-white rounded-lg overflow-hidden flex flex-col">
                 <div className="relative aspect-[4/3] bg-surface">
                     <Image
@@ -33,12 +35,10 @@ export default function ProductItem({ product }: Props) {
                         <span className="text-ink font-semibold">
                             {formatPrice(product.price)}
                         </span>
-                        <button
-                            type="button"
-                            className="bg-ink text-white px-3 py-2 rounded-md text-sm font-medium"
-                        >
-                            Add to cart
-                        </button>
+                        <AddToCartButton 
+                        product={product} 
+                        buttonText="Add to cart"
+                        className="bg-ink text-white px-3 py-2 rounded-md text-sm font-medium"/>
                     </div>
                 </div>
             </article>

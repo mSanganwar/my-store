@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { pressable } from "@/lib/ui";
 
 export default function ProductNotFound() {
     return (
@@ -13,7 +14,7 @@ export default function ProductNotFound() {
             </p>
             <Link
                 href="/products"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-ink border border-white/10 rounded-lg text-sm font-medium hover:bg-white/5"
+                className={`${pressable} inline-flex items-center gap-2 px-4 py-2 bg-ink border border-white/10 rounded-lg text-sm font-medium hover:bg-white/5 hover:border-white/30`}
             >
                 <span aria-hidden>←</span> Browse all products
             </Link>

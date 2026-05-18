@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatPrice } from "@/lib/products";
+import { pressable, pressableLink, pressablePrimary } from "@/lib/ui";
 
 type Props = {
     subtotal: number;
@@ -43,7 +44,7 @@ export default function OrderSummary({ subtotal, discount }: Props) {
                 />
                 <button
                     type="button"
-                    className="bg-ink text-white rounded-md px-4 py-2 text-sm font-medium"
+                    className={`${pressable} bg-ink text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-ink/90`}
                 >
                     Apply
                 </button>
@@ -51,14 +52,14 @@ export default function OrderSummary({ subtotal, discount }: Props) {
 
             <button
                 type="button"
-                className="bg-accent text-white rounded-md py-3 font-semibold hover:opacity-90"
+                className={`${pressablePrimary} bg-accent text-white rounded-md py-3 font-semibold hover:bg-accent/90`}
             >
                 Proceed to checkout
             </button>
 
             <Link
                 href="/products"
-                className="text-accent text-sm text-center font-medium hover:underline"
+                className={`${pressableLink} text-accent text-sm text-center font-medium hover:underline`}
             >
                 ← Continue shopping
             </Link>

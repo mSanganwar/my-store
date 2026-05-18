@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { pressable } from "@/lib/ui";
 
 export default function Hero() {
     return (
@@ -17,7 +18,7 @@ export default function Hero() {
                     </p>
                     <Link
                         href="/products"
-                        className="inline-flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg text-sm font-medium hover:bg-white/5"
+                        className={`${pressable} inline-flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg text-sm font-medium hover:bg-white/5 hover:border-white/40`}
                     >
                         Shop now <span aria-hidden>→</span>
                     </Link>

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import AddToCartButton from '@/components/AddToCartButton'
 import {
     categoryBadge,
     computeDiscount,
     formatPrice,
     getProductById,
 } from "@/lib/products";
+import { pressable } from "@/lib/ui";
 
 const sizes = ["S", "M", "L", "XL"];
 
@@ -16,7 +18,6 @@ type Props = {
 export default async function ProductDetails({ params }: Props) {
     const { product: productId } = await params;
     const product = getProductById(Number(productId));
-
     if (!product) {
         notFound();
     }
@@ -28,7 +29,7 @@ export default async function ProductDetails({ params }: Props) {
         <section className="my-6">
             <Link
                 href="/products"
-                className="inline-flex items-center gap-2 px-3 py-2 bg-ink border border-white/10 rounded-lg text-sm font-medium hover:bg-white/5 mb-6"
+                className={`${pressable} inline-flex items-center gap-2 px-3 py-2 bg-ink border border-white/10 rounded-lg text-sm font-medium hover:bg-white/5 hover:border-white/30 mb-6`}
             >
                 <span aria-hidden>←</span> Back to products
             </Link>
@@ -129,12 +130,10 @@ export default async function ProductDetails({ params }: Props) {
                     </div>
 
                     <div className="flex gap-3 mt-2">
-                        <button
-                            type="button"
-                            className="px-6 py-3 bg-ink border border-white/10 rounded-lg text-sm font-medium hover:bg-white/5"
-                        >
-                            Add to cart
-                        </button>
+                        <AddToCartButton 
+                        product={product} 
+                        buttonText="Add to cart"
+                        className="bg-ink text-white px-3 py-2 rounded-md text-sm font-medium"/>
                         <button
                             type="button"
                             className="px-6 py-3 border border-white/20 rounded-lg text-sm font-medium hover:bg-white/5 inline-flex items-center gap-2"

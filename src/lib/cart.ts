@@ -19,8 +19,6 @@ export const getCartItems = (): CartItemWithProduct[] =>
         .map((item) => ({ ...item, product: getProductById(item.productId) }))
         .filter((item): item is CartItemWithProduct => item.product !== undefined);
 
-export const getCartLineCount = (): number => cartItems.length;
-
 export const getCartSubtotal = (): number =>
     getCartItems().reduce(
         (sum, item) => sum + item.product.price * item.quantity,

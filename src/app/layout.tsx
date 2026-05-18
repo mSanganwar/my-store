@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar'
+import {CartProvider} from '@/context/CartContext'
 import './globals.css'
 
 export const metadata = {
@@ -9,11 +10,15 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
+
   return (
     <html lang="en">
       <body className='container mx-auto px-4'>
+        <CartProvider>
         <Navbar/>
         {children}
+        </CartProvider>
       </body>
     </html>
   )
