@@ -26,7 +26,7 @@ export default function CartItemRow({ item }: Props) {
         </p>
       </div>
 
-      <QtyStepper id={item.id} qty={item.qty} />
+      <QtyStepper id={item.id} qty={item?.qty}/>
 
       <button
         type="button"

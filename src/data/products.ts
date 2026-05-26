@@ -5,6 +5,7 @@ export type Product = {
   category: "men" | "women" | "kids"
   image: string
   description: string
+  qty?: number
 }
 
 export const products: Product[] = [

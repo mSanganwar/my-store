@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AddToCartButton from '@/components/AddToCartButton'
+import QtyStepper from "@/components/QtyStepper";
 import {
     categoryBadge,
     computeDiscount,
@@ -110,23 +111,7 @@ export default async function ProductDetails({ params }: Props) {
 
                     <div>
                         <p className="font-semibold text-sm mb-2">Quantity</p>
-                        <div className="flex items-center gap-3">
-                            <button
-                                type="button"
-                                className="size-10 border border-white/20 rounded-lg text-lg leading-none hover:bg-white/5"
-                                aria-label="Decrease quantity"
-                            >
-                                −
-                            </button>
-                            <span className="text-lg w-8 text-center">1</span>
-                            <button
-                                type="button"
-                                className="size-10 border border-white/20 rounded-lg text-lg leading-none hover:bg-white/5"
-                                aria-label="Increase quantity"
-                            >
-                                +
-                            </button>
-                        </div>
+                        <QtyStepper id={product.id} qty={product.qty ?? 1} />
                     </div>
 
                     <div className="flex gap-3 mt-2">
